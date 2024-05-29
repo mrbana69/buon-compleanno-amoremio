@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>solo tu!!</title>
+    <style>
+        /*... previous styles... */
+  .certificate {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            background-size: cover;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            margin: 40px auto;
+        }
+  .certificate.text-container {
+            text-align: center;
+        }
+  .certificate h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            font-family: 'Dancing Script', cursive;
+        }
+  .certificate p {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+  .award-name {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            font-family: 'Dancing Script', cursive;
+        }
+  .audio-loop {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="initial-text">Scusami cara, ti è caduto questo!</h1>
+        <div class="certificate" id="certificate">
+            <div class="text-container">
+                <h1 style="text-align: center;">Certificato di Gnocchezza</h1>
+                <p style="text-align: center">questo certificato attesta che</p>
+                <h2 class="award-name" style="text-align: center;">Zhara</h2>
+                <p style="text-align: center;">è stata nominata con il titolo</p>
+                <h1 style="text-align: center;">A Femmn più gnocc d sempr❤️❤️</h1>
+                <p style="font-style: italic; text-align:center">- Emiliano B.</p>
+            </div>
+        </div>
+        <audio class="audio-loop" loop>
+            <source src="rizz song.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <script>
+        const initialText = document.getElementById('initial-text');
+        const certificate = document.getElementById('certificate');
+        const audioLoop = document.querySelector('.audio-loop')
+
+        // Hide the certificate initially
+        certificate.style.display = 'none'
+
+        // Show the certificate after 2 seconds
+        setTimeout(() => {
+            initialText.style.display = 'none';
+            certificate.style.display = 'flex';
+            audioLoop.play();
+        }, 2000);
+    </script>
+</body>
+</html>
