@@ -17,13 +17,14 @@
         }
         
         button {
-            font-family: Arial, sans-serif;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-size: 24px;
             border: none;
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
+            font-style: italic;
             margin: 0 10px;
             cursor: pointer;
             border-radius: 12px;
@@ -48,13 +49,14 @@
             background-color: #FF6969;
         }
     </style>
-    <title>La tua sorpresa</title>
+    <title>REGALO VIRTUALE!</title>
     <script>
         function handleClick(answer) {
             if (answer === 'yes') {
+                alert("Grande 😊😊");
                 window.location.href = 'lettera-dolce.html';
             } else {
-                alert("Ah... va bene😔");
+                alert("Ah... va bene😔😔");
                 window.location.href = 'https://www.google.com';
             }
         }
@@ -62,7 +64,7 @@
 </head>
 <body>
     <h1>Pronta per vedere la sorpresa?</h1>
-    <button class="yes" onclick="handleClick('yes')">Si</button>
-    <button class="no" onclick="handleClick('no')">No</button>
+    <button class="yes" onclick="handleClick('yes')">Ovviamente!!!</button>
+    <button class="no" onclick="handleClick('no')">Sinceramente no!</button>
 </body>
 </html>
