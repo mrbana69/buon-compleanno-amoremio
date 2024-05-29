@@ -66,17 +66,82 @@
     <script>
         const initialText = document.getElementById('initial-text');
         const certificate = document.getElementById('certificate');
-        const audioLoop = document.querySelector('.audio-loop')
-
+        const audioLoop = document.querySelector('#audio-loop');
+        const playButton = document.querySelector('#play-button');
+    
         // Hide the certificate initially
-        certificate.style.display = 'none'
-
+        certificate.style.display = 'none';
+    
         // Show the certificate after 2 seconds
         setTimeout(() => {
             initialText.style.display = 'none';
             certificate.style.display = 'flex';
-            audioLoop.play();
         }, 2000);
+    
+        // Add event listener to play button
+        playButton.addEventListener('click', () => {
+            if (audioLoop.paused) {
+                audioLoop.play();
+            } else {
+                audioLoop.pause();
+            }
+        });
+    
+        // Load the audio element
+        audioLoop.load();
+    
+        // Check if the audio element is playing
+        function isPlaying(audio) {
+            return!audio.paused;
+        }
+    
+        // Check if the audio element is loaded
+        function isLoaded(audio) {
+            return audio.readyState === 4;
+        }
+    
+        // Play the audio element
+        function playAudio(audio) {
+            if (isLoaded(audio)) {
+                audio.play();
+            } else {
+                audio.oncanplaythrough = () => {
+                    audio.play();
+                };
+            }
+        }
+    
+        // Check if the audio element is paused
+        function isPaused(audio) {
+            return audio.paused;
+        }
+    
+        // Pause the audio element
+        function pauseAudio(audio) {
+            if (isPlaying(audio)) {
+                audio.pause();
+            }
+        }
+    
+        // Toggle play/pause
+        function togglePlayPause(audio, button) {
+            if (isPlaying(audio)) {
+                pauseAudio(audio);
+                button.textContent = 'Play';
+            } else {
+                playAudio(audio);
+                button.textContent = 'Pause';
+            }
+        }
+    
+        // Check if the audio element is loaded and play it if it is
+        if (isLoaded(audioLoop)) {
+            playAudio(audioLoop);
+        } else {
+            audioLoop.oncanplaythrough = () => {
+                playAudio(audioLoop);
+            };
+        }
     </script>
 </body>
 </html>

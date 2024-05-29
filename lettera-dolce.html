@@ -104,29 +104,37 @@
         <button class="button" id="continue-button">CONTINUA</button>
     </div>
     <script>
-        const animatedText = document.querySelector('.animated-text');
-        const notepad = document.querySelector('.notepad');
-        const message = document.querySelector('.message');
-        const continueButton = document.querySelector('#continue-button');
-        const audio = document.querySelector('#audio');
-
-        // Hide the notepad and message initially
-        notepad.style.height = '0';
-        message.style.opacity = '0';
-
-        // Show the notepad and message after 2 seconds
-        setTimeout(() => {
-            notepad.style.height = '400px';
-            message.style.opacity = '1';
-            audio.play();
-        }, 2000);
-
-        // Add event listener to the continue button
-        continueButton.addEventListener('click', () => {
-            // Make alert
-            alert('Grazie per aver letto il mio messaggio amore, spero ti sia piaciuto💕 Comunque non ho ancora finito😊, giusto un ultima cosetta per te❤️')            // Redirect to another page
-            window.location.href = 'certificato.html';
-        });
-    </script>
+      const animatedText = document.querySelector('.animated-text');
+      const notepad = document.querySelector('.notepad');
+      const message = document.querySelector('.message');
+      const continueButton = document.querySelector('#continue-button');
+      const audio = document.getElementById('audio-loop');
+  
+      // Hide the notepad and message initially
+      notepad.style.height = '0';
+      message.style.opacity = '0';
+  
+      // Show the notepad and message after 2 seconds
+      setTimeout(() => {
+          notepad.style.height = '400px';
+          message.style.opacity = '1';
+          audio.load(); // Load the audio
+          audio.play(); // Play the audio
+      }, 2000);
+  
+      // Add touchstart event listener to the body
+      document.body.addEventListener('touchstart', () => {
+          audio.load(); // Load the audio
+          audio.play(); // Play the audio
+      });
+  
+      // Add event listener to the continue button
+      continueButton.addEventListener('click', () => {
+          // Make alert
+          alert('Grazie per aver letto il mio messaggio amore, spero ti sia piaciuto Comunque non ho ancora finito, giusto un ultima cosetta per te');
+          // Redirect to another page
+          window.location.href = 'certificato.html';
+      });
+  </script>
 </body>
 </html>
